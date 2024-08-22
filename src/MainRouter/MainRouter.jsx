@@ -1,5 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import NewOppcomp from "../Manage/Opportunities/NewOpportunity/NewoppComp";
+import AppliedComp from "../Manage/Opportunities/AppliedComp/AppliedComp";
+import CompltedComp from "../Manage/Opportunities/CompletedComp/CompletedComp";
+import OngoingComp from "../Manage/Opportunities/OngoingComp/OngoingComp";
 
 
 const MainRouter = () => {
@@ -68,14 +72,23 @@ const MainRouter = () => {
           }
         />
 
-<Route
+        <Route
           path="/Opportunities"
-          element={
-            <div className="h-screen w-screen flex items-center justify-center bg-slate-400">
-              {" "}
-              Opportunities
-            </div>
-          }
+          element={<NewOppcomp/>}
+        />
+
+         <Route
+          path="/Applied"
+          element={<AppliedComp/>}
+        />
+
+         <Route
+          path="/Ongoing"
+          element={<OngoingComp/>}
+        />
+         <Route
+          path="/Complete"
+          element={<CompltedComp/>}
         />
 
 

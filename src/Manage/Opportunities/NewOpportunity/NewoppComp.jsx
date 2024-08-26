@@ -27,7 +27,7 @@ const NewOppcomp = () => {
           </div>
          
         </div>
-        <div class="flex mt-7 pb-3 border-b border-border">
+        <div class="flex mt-7  pb-3 border-b border-border">
           <div className="flex gap-6">
             <Link to="/Opportunities">
               <div

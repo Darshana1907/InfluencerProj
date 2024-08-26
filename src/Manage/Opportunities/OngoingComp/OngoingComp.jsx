@@ -1,13 +1,110 @@
 import React, { useContext, useState } from "react";
 import { Mycontext } from "../../../utils/Context";
 import { Link, useLocation } from "react-router-dom";
+import OngoingPop from "./OngoingPop";
+import { GoDotFill } from "react-icons/go";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const OngoingComp = () => {
   const contextState = useContext(Mycontext);
   const expanded = contextState.expanded;
   const location = useLocation();
+  const [isModalVisible, setIsModalVisible] =useState(false);
+  const [selectIndax , setSelectIndex]= useState(null);
 
+  const invoiceData = [
+    {
+      brandName: "Crocks",
+      campaignName: "Save Trees and More",
+      platform: ["Instagram", "facebook","Youtube"],
+      appliedDate: "10 July 2024",
+      status: "Ongoing",
+      balance: "$5000",
+      statusColor: "bg-green-200 text-green-800", // For completed status
+      location:['New Delhi, Mumbai '],
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis." ,
+      startDate:'1 july 2024',
+      endDate :'10 july 2024',
+      postCount:1,
+      reelCount: 2,
+      storyCount:3,
+      addInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .',
+    },
 
+    {
+      brandName: "Crocks",
+      campaignName: "Save Trees and More",
+      platform: ["Instagram", "facebook","Youtube"],
+      appliedDate: "10 July 2024",
+      status: "Ongoing",
+      balance: "$10000",
+      statusColor: "bg-green-200 text-green-800", // For completed status
+      location:['New Delhi, Mumbai '],
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis." ,
+      startDate:'1 july 2024',
+      endDate :'10 july 2024',
+      postCount:0,
+      reelCount: 2,
+      storyCount:1,
+      addInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .',
+    },
+    {
+      brandName: "Crocks",
+      campaignName: "Save Trees and More",
+      platform: ["Instagram", "facebook","Youtube"],
+      appliedDate: "10 July 2024",
+      status: "Ongoing",
+      balance: "$10000",
+      statusColor: "bg-green-200 text-green-800", // For completed status
+      location:['New Delhi, Mumbai '],
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis." ,
+      startDate:'1 july 2024',
+      endDate :'10 july 2024',
+      postCount:0,
+      reelCount: 2,
+      storyCount:1,
+      addInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .',
+    },
+    {
+      brandName: "Crocks",
+      campaignName: "Save Trees and More",
+      platform: ["Instagram", "facebook","Youtube"],
+      appliedDate: "10 July 2024",
+      status: "Ongoing",
+      balance: "$10000",
+      statusColor: "bg-green-200 text-green-800", // For completed status
+      location:['New Delhi, Mumbai '],
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis." ,
+      startDate:'1 july 2024',
+      endDate :'10 july 2024',
+      postCount:0,
+      reelCount: 2,
+      storyCount:1,
+      addInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .',
+    },
+    {
+      brandName: "Crocks",
+      campaignName: "Save Trees and More",
+      platform: ["Instagram", "facebook","Youtube"],
+      appliedDate: "10 July 2024",
+      status: "Ongoing",
+      balance: "$10000",
+      statusColor: "bg-green-200 text-green-800", // For completed status
+      location:['New Delhi, Mumbai '],
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis." ,
+      startDate:'1 july 2024',
+      endDate :'10 july 2024',
+      postCount:0,
+      reelCount: 2,
+      storyCount:1,
+      addInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .',
+    },
+  ]
+ 
+    const handleview =(index)=>{
+      setIsModalVisible(true);
+      setSelectIndex(index)
+    }
 
   return (
     <div
@@ -76,10 +173,87 @@ const OngoingComp = () => {
           </div>
          
         </div>
-       Ongoing--------------
+    <div className=" w-[1051px]  ">
+       <table   className={`w-full ml-3`}>
+       
+       <thead className="h-[90px] border-b-2">
+        
+              <tr className="  w-[736px] h-[20px] ">
+                <th className="    font-body text-[#797A7B] text-[12px]  p-3 font-semibold text-start ">
+                BRAND NAME
+                </th>
+                <th className="   font-body text-[#797A7B] text-[12px] p-3 font-semibold text-start ">
+                  CAMPAIGN NAME
+                </th>
+                <th className=" font-body text-[#797A7B] text-[12px]  font-semibold text-start p-3">
+                PLATFORM
+                </th>
+                <th className=" font-body text-[#797A7B] text-[12px]  font-semibold text-start p-3">
+                APPLIED DATE
+                </th>
+                <th className=" font-body text-[#797A7B] text-[12px]   font-semibold text-start p-3">
+               STATUS
+                </th>
+                <th className=" font-body text-[#797A7B] text-[12px]   font-semibold text-start p-3">
+               Button
+                </th>
+
+
+                
+              </tr>
+            </thead>
+             
+
+           
+        <tbody className="w-[1051px] " >
+        {invoiceData.map((invoice, index) => (
+        <tr key={index} className="border-b  items-center h-[99px] w-[767px] ">
+              <td className="   p-3 text-[16px]    font-normal font-body flex items-center ">{invoice.brandName}
+                 <span className="text-[#0066FF] text-lg gap-1"><FiArrowUpRight /></span></td>
+
+              <td className="  p-3 text-[16px]  font-normal font-body  ">{invoice.campaignName}</td>
+          
+              <td className=" text-[16px] p-3    font-normal font-body">
+                      {invoice.platform.length > 1
+                        ? `${invoice.platform[0]} +${
+                          invoice.platform.length - 1
+                          }`  
+                        : invoice.platform[0]}
+                </td>
+
+              <td className="  p-3 text-[16px]     font-normal font-body">{invoice.appliedDate}</td>
+            
+            <td className="    text-[14px] font-normal p-4       ">
+                      <p className={`font-body bg-[#B0EDC7] w-[84px] h-[24px] font-normal text-[14px] justify-center items-center flex  px-[8px] py-[2px]   rounded-[14px] text-black `}>
+                        <span><GoDotFill  className="  text-[#22C55E]  mr-[2px] " /> </span>
+                         {invoice.status}
+                      </p>
+                    </td>
+                    
+              <td className=" flex items-center justify-center  mt-8  gap-1  " >
+                   <button onClick={()=>handleview(index)} className="text-[#0066FF]  mr-6 px-[16px] w-[120px] h-[35px] rounded-[8px] border-2 border-[#0066FF] font-body text-[14px]    font-normal">
+                View Details</button>
+           
+                   <button className="bg-[#0066FF] text-[#FFFFFF] rounded-[8px] font-body text-[14px]   px-[16px] w-[120px] h-[35px] font-normal">
+                   Submit proof</button>
+            </td>      
+            
+          </tr>
+
+
+          ))}
+        </tbody>
+
+          
+
+       </table>
+       </div>
+
+      
+       
       </div>
 
-    
+      <OngoingPop  selectData={invoiceData[selectIndax]} setIsModalVisible={setIsModalVisible} isModalVisible={isModalVisible} />
     </div>
   );
 };

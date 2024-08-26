@@ -8,7 +8,7 @@ const DataComp = ({ isModalVisible, setIsModalVisible, selectData}) => {
   const { campData, setCampData } = useContext(Mycontext);
 
 
-  const handleCancel = () => {
+  const handleCancel = () => { 
    setIsModalVisible(false);
   };
 

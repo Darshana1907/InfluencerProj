@@ -35,7 +35,7 @@ const OngoingPop = ({ isModalVisible, setIsModalVisible, selectData}) => {
 
             <div className="p-5 text-start">
               <div className="flex items-center space-x-4 text-start">
-                <div> <img src={selectData.logo} width="50px" height="50px" /> </div>
+                <div> <img src={selectData.img} width="50px" height="50px" /> </div>
                 <div><h1 className="text-[26px] font-body font-semibold text-[#0066FF]">{selectData.campaignName}</h1>
                 <p className="text-[12px] font-body font-normal text-[#797A7B]">{selectData.brandName}</p></div>
               </div>

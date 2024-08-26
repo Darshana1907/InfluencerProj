@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import OngoingPop from "./OngoingPop";
 import { GoDotFill } from "react-icons/go";
 import { FiArrowUpRight } from "react-icons/fi";
+import Brand from "../../../Assets/logo.png";
 
 const OngoingComp = () => {
   const contextState = useContext(Mycontext);
@@ -13,7 +14,8 @@ const OngoingComp = () => {
   const [selectIndax , setSelectIndex]= useState(null);
 
   const invoiceData = [
-    {
+    { 
+      img :Brand,
       brandName: "Crocks",
       campaignName: "Save Trees and More",
       platform: ["Instagram", "facebook","Youtube"],
@@ -31,7 +33,8 @@ const OngoingComp = () => {
       addInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .',
     },
 
-    {
+    {  
+      img :Brand,
       brandName: "Crocks",
       campaignName: "Save Trees and More",
       platform: ["Instagram", "facebook","Youtube"],

@@ -4,6 +4,7 @@ import NewOppcomp from "../Manage/Opportunities/NewOpportunity/NewoppComp";
 import AppliedComp from "../Manage/Opportunities/AppliedComp/AppliedComp";
 import CompltedComp from "../Manage/Opportunities/CompletedComp/CompletedComp";
 import OngoingComp from "../Manage/Opportunities/OngoingComp/OngoingComp";
+import NewProfileComp from "../Manage/Opportunities/NewOpportunity/NewProfile";
 
 
 const MainRouter = () => {
@@ -89,6 +90,10 @@ const MainRouter = () => {
          <Route
           path="/Complete"
           element={<CompltedComp/>}
+        />
+          <Route
+          path="/ProfileBrand"
+          element={<NewProfileComp/>}
         />
 
 

@@ -8,6 +8,7 @@ import insta from "../../../Assets/instagram.png";
 import fb from "../../../Assets/Facebook.png";
 import yt from "../../../Assets/yt.png";
 import DataComp from "./Data";
+import NewProfileComp from "./NewProfile";
 
 
 const NewOppcomp = () => {
@@ -15,7 +16,10 @@ const NewOppcomp = () => {
   const expanded = contextState.expanded;
   const location = useLocation();
   const [isModalVisible,setIsModalVisible]=useState(false);
+  const [isOpen, setIsOpen] =useState(false)
   const [selectIndex, setSelectIndex] = useState(null);
+
+  
 
 
   const Details = [
@@ -98,18 +102,23 @@ const NewOppcomp = () => {
     setSelectIndex(index);
   }
 
+  const handleBrand =( index )=>{
+    setIsOpen(true);
+    setSelectIndex(index);
+  }
+
 
   return (
     <div
-      className={`flex relative ${
+      className={`flex relative h-[897px] ${
         !expanded
           ? "left-[100px] w-[calc(100%-110px)]"
           : "left-[320px] w-[calc(100%-320px)]"
       } overflow-y-auto bg-white space-y-4 p-4`}
     >
-      <div className="bg-white h-[897px] w-full">
-        <div className="flex w-full justify-between items-center p-4 bg-white border-border">
-          <div>
+      <div className="bg-white  w-full">
+        <div className={`flex ${expanded ? 'w-[1062px]':'w-full'} h-[52px] justify-between items-center p-4 bg-white border-border`}>
+          <div className={``}>
             <h1 className="text-[24px] font-semibold font-body">Opportunities</h1>
             <p className="text-[14px] font-normal font-body text-[#57595a]">
               Discover various brand campaigns —connect, collaborate, and elevate your influence to the next level!
@@ -117,8 +126,8 @@ const NewOppcomp = () => {
           </div>
         </div>
         
-        <div className="flex mt-7 pb-3 border-b border-border">
-          <div className="flex gap-6">
+        <div className={`flex mt-11 px-4 border-b `}>
+          <div className={`flex gap-6  ${expanded ? 'w-[780px]':'w-full'}`}>
             <Link to="/Opportunities">
               <div
                 className={`px-[6px] text-[16px] font-body w-[160px] h-[22px] ${
@@ -165,8 +174,9 @@ const NewOppcomp = () => {
             </Link>
           </div>
         </div>
-
-        <div className="w-full flex justify-between my-7 h-[45px]">
+       
+         {/* search bar */}
+        <div className={`${expanded ? 'w-[1031px]':'w-full'} flex justify-between  my-7 h-[45px]`}>
           <div className="w-[815px] flex items-center gap-2 border-2 border-[#EAEAEA] bg-[#FFFFFF] px-[16px] py-[8px] rounded-[10px]">
             <span>
               <IoSearch className="w-[18px] h-[18px] text-[#797A7B]" />
@@ -185,14 +195,14 @@ const NewOppcomp = () => {
         </div>
  
 
-      <div className="p-4 mt-[-2%]">
+      <div className="p-4 mt-[-2%] ml-1">
       {Details.map((data, index) => (
         <div key={index}
-          className={ `w-full my-4  bg-[#ffffff] border-1 p-5 h-[130px] rounded-[14px]`}
+          className={ ` ${expanded ? 'w-[1013px]':'w-full'} my-4  bg-[#ffffff] border-1 p-5 h-[130px] rounded-[14px]`}
           style={{ boxShadow: "2px 4px 14px 2px #00000040" }}
         >
          
-            <div  className="flex items-center justify-between h-[92px] w-full">
+            <div  className={`flex items-center justify-between h-[92px] w-full  ${expanded ?'w-[961px]':'w-full'}`}>
               <div className="mt-2">
                 <img src={data.logo} className="w-[90px] h-[90px]" />
               </div>
@@ -200,7 +210,7 @@ const NewOppcomp = () => {
               <div className="w-[264px] h-[90px]">
                 <div className="w-[220px] h-[46px]">
                   <h1 className="text-black text-[20px] font-semibold font-body">{data.title}</h1>
-                  <p className="text-[16px] font-semibold font-body text-[#8E9090]">{data.name}</p>
+                  <p onClick={()=>handleBrand(index)} className="text-[16px] font-semibold font-body text-[#8E9090] cursor-pointer">{data.name}</p>
                 </div>
                 <div className="flex space-x-3 mt-5">
                   {data.socials.includes('instagram') && (
@@ -246,8 +256,9 @@ const NewOppcomp = () => {
         </div>
          ))}
       </div>
-
+          
         <div>
+          <NewProfileComp selectData={Details[selectIndex]} setIsOpen={setIsOpen} isOpen={isOpen} />
         <DataComp  selectData={Details[selectIndex]} setIsModalVisible={setIsModalVisible} isModalVisible={isModalVisible} />
         </div>
       </div>

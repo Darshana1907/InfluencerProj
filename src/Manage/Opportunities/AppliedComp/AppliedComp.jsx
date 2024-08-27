@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Mycontext } from "../../../utils/Context";
 import { Link, useLocation } from "react-router-dom";
 import { GoDotFill } from "react-icons/go";
+import Brand from "../../../Assets/logo.png";
 import { FiArrowUpRight } from "react-icons/fi";
 import AppCompModal from "./AppCompModal";
 
@@ -10,44 +11,115 @@ const AppliedComp = () => {
   const expanded = contextState.expanded;
   const location = useLocation();
   const [openModal, setOpenModal] = useState(false);
+  const [selectIndex, setSelectIndex] = useState(null);
 
   const AppliedCompData = [
     {
+      logo: Brand,
       brandName: "Crocks",
       campaignName: "Save Trees and More",
+      name: "Brand Name",
       platforms: "instagram+2",
+      location: ["New Delhi", "Mumbai"],
+      startDate: "1 July 2024",
       AppliedDate: "10 July 2024",
       status: "Applied",
+      socials: ["Instagram", "Snapchat"],
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+      postCount: 0,
+      reelCount: 2,
+      storyCount: 3,
+      payment: 5000,
+      addInfo:
+        " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .",
     },
+
     {
+      logo: Brand,
       brandName: "Crocks",
       campaignName: "Save Trees and More",
+      name: "Brand Name",
       platforms: "instagram+2",
+      location: ["New Delhi", "Mumbai"],
+      startDate: "1 July 2024",
       AppliedDate: "10 July 2024",
       status: "Applied",
+      socials: ["Instagram", "Snapchat"],
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+      postCount: 0,
+      reelCount: 2,
+      storyCount: 3,
+      payment: 5000,
+      addInfo:
+        " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .",
     },
     {
+      logo: Brand,
       brandName: "Crocks",
       campaignName: "Save Trees and More",
+      name: "Brand Name",
       platforms: "instagram+2",
+      location: ["New Delhi", "Mumbai"],
+      startDate: "1 July 2024",
       AppliedDate: "10 July 2024",
       status: "Applied",
+      socials: ["Instagram", "Snapchat"],
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+      postCount: 0,
+      reelCount: 2,
+      storyCount: 3,
+      payment: 5000,
+      addInfo:
+        " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .",
     },
     {
+      logo: Brand,
       brandName: "Crocks",
       campaignName: "Save Trees and More",
+      name: "Brand Name",
       platforms: "instagram+2",
+      location: ["New Delhi", "Mumbai"],
+      startDate: "1 July 2024",
       AppliedDate: "10 July 2024",
       status: "Withdrawn",
+      socials: ["Instagram", "Snapchat"],
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+      postCount: 0,
+      reelCount: 2,
+      storyCount: 3,
+      payment: 5000,
+      addInfo:
+        " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .",
     },
     {
+      logo: Brand,
       brandName: "Crocks",
       campaignName: "Save Trees and More",
+      name: "Brand Name",
       platforms: "instagram+2",
+      location: ["New Delhi", "Mumbai"],
+      startDate: "1 July 2024",
       AppliedDate: "10 July 2024",
       status: "Applied",
+      socials: ["Instagram", "Snapchat"],
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+      postCount: 0,
+      reelCount: 2,
+      storyCount: 3,
+      payment: 5000,
+      addInfo:
+        " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .",
     },
   ];
+  const handleViewDetails = (index) => {
+    setSelectIndex(index);
+    setOpenModal(true);
+  };
 
   return (
     <div
@@ -116,7 +188,7 @@ const AppliedComp = () => {
           </div>
         </div>
         <div className="mt-8 px-4">
-          <table className="w-full">
+          <table className={`${expanded ? "w-[1047px]" : "w-full"}`}>
             <thead>
               <tr>
                 <th className="text-[#797A7B] font-semibold text-[12px] text-start">
@@ -137,19 +209,24 @@ const AppliedComp = () => {
               </tr>{" "}
             </thead>
             <tbody className="mt-2">
-              {AppliedCompData.map((data) => {
+              {AppliedCompData.map((data, index) => {
                 return (
-                  <tr className="border-y border-[#D2D3D3] h-[99px] py-[32px]">
+                  <tr
+                    key={index}
+                    className="border-y border-[#D2D3D3] h-[99px] py-[32px]"
+                  >
                     <td>
-                      <div className="flex">
-                        <span className="font-normal text-base text-[#191D23]">
-                          {" "}
-                          {data.brandName}
-                        </span>
-                        <span>
-                          <FiArrowUpRight className="mt-1 text-[#0066FF]" />
-                        </span>
-                      </div>
+                      <button>
+                        <div className="flex">
+                          <span className="font-normal text-base text-[#191D23]">
+                            {" "}
+                            {data.brandName}
+                          </span>
+                          <span>
+                            <FiArrowUpRight className="mt-1 text-[#0066FF]" />
+                          </span>
+                        </div>
+                      </button>
                     </td>
                     <td className="font-normal text-base text-[#191D23]">
                       {data.campaignName}
@@ -170,7 +247,7 @@ const AppliedComp = () => {
                        }`}
                       >
                         <GoDotFill
-                          className={`w-[6px] h-[6px] m-1 ${
+                          className={`text-2xl ${
                             data.status === "Withdrawn"
                               ? "text-[#E42828] "
                               : "text-[#FACC15]"
@@ -195,9 +272,7 @@ const AppliedComp = () => {
                     <td>
                       <button
                         className="w-[120px] h-[35px] px-[16px] rounded-[8px] border border-[#0066FF] font-normal text-[14px] text-[#0066FF]"
-                        onClick={() => {
-                          setOpenModal(true);
-                        }}
+                        onClick={() => handleViewDetails(index)}
                       >
                         View Details
                       </button>
@@ -207,7 +282,12 @@ const AppliedComp = () => {
               })}
             </tbody>
           </table>
-          {openModal && <AppCompModal closeModal={setOpenModal} />}
+          {openModal && (
+            <AppCompModal
+              closeModal={setOpenModal}
+              selectData={AppliedCompData[selectIndex]}
+            />
+          )}
         </div>
       </div>
     </div>

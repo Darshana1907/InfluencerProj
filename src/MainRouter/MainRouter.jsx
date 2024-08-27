@@ -96,9 +96,6 @@ const MainRouter = () => {
           element={<NewProfileComp/>}
         />
 
-
-
-
         <Route
           path="/settings"
           element={

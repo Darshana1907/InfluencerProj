@@ -3,56 +3,110 @@ import { Mycontext } from "../../../utils/Context";
 import { Link, useLocation } from "react-router-dom";
 import { FiArrowUpRight } from "react-icons/fi";
 import { GoDotFill } from "react-icons/go";
-import AppCompModal from "./CompletedModal";
+import Brand from "../../../Assets/Brand.png"
+import DataComp from "./Data";
 
 const CompletedComp = () => {
   const contextState = useContext(Mycontext);
   const expanded = contextState.expanded;
   const location = useLocation();
-  const [openModal, setOpenModal] = useState(false);
+  const [isModalVisible,setIsModalVisible] = useState(false);
+  const [selectIndex, setSelectIndex] = useState(null);
 
   const campaigns = [
     {
       id: "C123456",
-      name: "Save Trees and More",
+      logo: Brand,
+      title: "Save Trees and More",
+      name: "Brand Name",
       platforms: "Instagram +2",
       duration: "10 July - 15 July 2024",
+      socials: ["Instagram", "Snapchat"],
+      location: "New Delhi, Mumbai",
+      startDate :'1 july 2024',
+      endDate :'10 july 2024',
+      reelCount :2,
+      storyCount :1,
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
       earnings: "$3000",
       status: "Completed",
+      payment :5000,
+      addInfo :" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .",
     },
     {
       id: "C123456",
-      name: "Save Trees and More",
+      logo: Brand,
+      title: "Save Trees and More",
+      name: "Brand Name",
       platforms: "Instagram +2",
       duration: "10 July - 15 July 2024",
+      socials: ["instagram", "facebook", "youtube"],
+      location: "New Delhi, Mumbai, Chennai",
+      startDate :'1 july 2024',
+      endDate :'10 july 2024',
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
       earnings: "$3000",
       status: "Completed",
+      payment :5000,
+      addInfo :" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .",
     },
     {
       id: "C123456",
-      name: "Save Trees and More",
+      logo: Brand,
+      title: "Save Trees and More",
+      name: "Brand Name",
       platforms: "Instagram +2",
       duration: "10 July - 15 July 2024",
+      socials: ["instagram", "facebook", "youtube"],
+      location: "New Delhi, Mumbai, Chennai",
+      startDate :'1 july 2024',
+      endDate :'10 july 2024',
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
       earnings: "$3000",
       status: "Completed",
+      payment :5000,
+      addInfo :" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .",
     },
     {
       id: "C123456",
-      name: "Save Trees and More",
+      logo: Brand,
+      title: "Save Trees and More",
+      name: "Brand Name",
       platforms: "Instagram +2",
       duration: "10 July - 15 July 2024",
+      socials: ["instagram", "facebook", "youtube"],
+      location: "New Delhi, Mumbai, Chennai",
+      startDate :'1 july 2024',
+      endDate :'10 july 2024',
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
       earnings: "$3000",
       status: "Completed",
+      payment :5000,
+      addInfo :" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .",
     },
     {
       id: "C123456",
-      name: "Save Trees and More",
+      logo: Brand,
+      title: "Save Trees and More",
+      name: "Brand Name",
       platforms: "Instagram +2",
       duration: "10 July - 15 July 2024",
+      socials: ["instagram", "facebook", "youtube"],
+      location: "New Delhi, Mumbai, Chennai",
+      startDate :'1 july 2024',
+      endDate :'10 july 2024',
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
       earnings: "$3000",
       status: "Completed",
+      payment :5000,
+      addInfo :" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .",
     },
   ];
+
+  const handleView =( index )=>{
+    setIsModalVisible(true);
+    setSelectIndex(index);
+  }
 
   return (
     <div
@@ -122,7 +176,7 @@ const CompletedComp = () => {
         </div>
 
         <div className="mt-[68px] px-4">
-          <table className="w-full">
+          <table className={`${expanded ? "w-[1047px]" : "w-full"}`}>
             <thead>
               <tr className="border-b">
                 <th className="text-[#797A7B] font-semibold text-[12px] text-start">
@@ -155,7 +209,7 @@ const CompletedComp = () => {
                     <div className="py-8">
                       <span className="font-normal text-base text-[#191D23] w-[162px] h-[22px]">
                         {" "}
-                        {campaign.name}
+                        {campaign.title}
                       </span>
                       <div className="flex items-center gap-[1px]">
                         <h6 className="text-[#797A7B] font-sans text-xs not-italic font-normal leading-normal w-[38px] h-[16px]">
@@ -188,7 +242,7 @@ const CompletedComp = () => {
                   </td>
                   <td className="py-8">
                     <div className="flex w-[100px] h-[24px] py-[2px] px-2 justify-center items-center gap-[6px] rounded-[14px] bg-[#D1E3FF]">
-                      <GoDotFill className="w-[6px] h-[6px] text-[#0062F5]" />
+                      <GoDotFill className="text-4xl text-[#0062F5]" />
                       <span className="text-[#000] font-sans text-sm not-italic font-normal leading-[20px]">
                         {campaign.status}
                       </span>
@@ -197,9 +251,7 @@ const CompletedComp = () => {
                   <td className="flex items-center gap-[14px] py-8">
                     <button
                       className="text-[#06F] text-center font-sans text-sm not-italic font-normal leading-[100%] w-[79px]"
-                      onClick={() => {
-                        setOpenModal(true);
-                      }}
+                      onClick={() =>handleView(index)}
                     >
                       View Details
                     </button>
@@ -211,7 +263,7 @@ const CompletedComp = () => {
               ))}
             </tbody>
           </table>
-          {openModal && <AppCompModal closeModal={setOpenModal} />}
+          <DataComp  selectData={campaigns[selectIndex]} setIsModalVisible={setIsModalVisible} isModalVisible={isModalVisible} />
         </div>
       </div>
     </div>

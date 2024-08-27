@@ -170,7 +170,7 @@ const AppliedComp = () => {
                        }`}
                       >
                         <GoDotFill
-                          className={` text-2xl ${
+                          className={` text-2xl p-1 m-1 ${
                             data.status === "Withdrawn"
                               ? "text-[#E42828] "
                               : "text-[#FACC15]"

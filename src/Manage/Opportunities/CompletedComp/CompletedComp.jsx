@@ -5,6 +5,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 import { GoDotFill } from "react-icons/go";
 import Brand from "../../../Assets/Brand.png"
 import DataComp from "./Data";
+import CompleteProfileComp from "./CompleteProfile";
 
 const CompletedComp = () => {
   const contextState = useContext(Mycontext);
@@ -12,11 +13,13 @@ const CompletedComp = () => {
   const location = useLocation();
   const [isModalVisible,setIsModalVisible] = useState(false);
   const [selectIndex, setSelectIndex] = useState(null);
+  const [isOpen, setIsOpen] =useState(false)
 
   const campaigns = [
     {
       id: "C123456",
       logo: Brand,
+      campbrand:'Crocks',
       title: "Save Trees and More",
       name: "Brand Name",
       platforms: "Instagram +2",
@@ -35,6 +38,7 @@ const CompletedComp = () => {
     },
     {
       id: "C123456",
+      campbrand:'Crocks',
       logo: Brand,
       title: "Save Trees and More",
       name: "Brand Name",
@@ -52,6 +56,7 @@ const CompletedComp = () => {
     },
     {
       id: "C123456",
+      campbrand:'Crocks',
       logo: Brand,
       title: "Save Trees and More",
       name: "Brand Name",
@@ -69,6 +74,7 @@ const CompletedComp = () => {
     },
     {
       id: "C123456",
+      campbrand:'Crocks',
       logo: Brand,
       title: "Save Trees and More",
       name: "Brand Name",
@@ -86,6 +92,7 @@ const CompletedComp = () => {
     },
     {
       id: "C123456",
+      campbrand:'Crocks',
       logo: Brand,
       title: "Save Trees and More",
       name: "Brand Name",
@@ -108,31 +115,36 @@ const CompletedComp = () => {
     setSelectIndex(index);
   }
 
+  const handleBrand =( index )=>{
+    setIsOpen(true);
+    setSelectIndex(index);
+  }
+
   return (
     <div
-      class={` flex relative  ${
+      class={` flex relative h-[897px]  ${
         !expanded
           ? "left-[100px] w-[calc(100%-110px)]"
           : "left-[320px] w-[calc(100%-320px)]"
       }  overflow-y-auto  bg-white space-y-4 p-4 `}
     >
-      <div className="bg-white h-[897px] w-full">
-        <div class="flex w-full justify-between items-center p-4 bg-white border-border">
-          <div>
-            <h1 class="text-[24px] font-semibold font-body">Opportunities</h1>
-            <p class="text-[14px] font-normal font-body text-[#57595a]">
-              Discover various brand campaigns —connect, collaborate, and
-              elevate your influence to the next level!
+      <div className="bg-white  w-full">
+      <div className={`flex ${expanded ? 'w-[1062px]':'w-full'} h-[52px] justify-between items-center p-4 bg-white border-border`}>
+          <div className={``}>
+            <h1 className="text-[24px] font-semibold font-body">Opportunities</h1>
+            <p className="text-[14px] font-normal font-body text-[#57595a]">
+              Discover various brand campaigns —connect, collaborate, and elevate your influence to the next level!
             </p>
           </div>
         </div>
-        <div class="flex mt-7 pb-3 border-b border-border">
-          <div className="flex gap-6">
+
+        <div className={`flex mt-11 px-4 border-b `}>
+          <div className={`flex gap-6  ${expanded ? 'w-[780px]':'w-full'}`}>
             <Link to="/Opportunities">
               <div
-                className={` px-[6px] text-[16px]  font-body   w-[160px] h-[22px] ${
+                className={`px-[6px] text-[16px] font-body w-[160px] h-[22px] ${
                   location.pathname === "/Opportunities"
-                    ? " text-[#191D23] font-semibold border-b-2 border-[#0066FF] "
+                    ? "text-[#191D23] font-semibold border-b-2 border-[#0066FF]"
                     : "text-[#57595A] font-normal"
                 }`}
               >
@@ -141,7 +153,7 @@ const CompletedComp = () => {
             </Link>
             <Link to="/Applied">
               <div
-                className={`  text-[16px]  font-body  w-[177px] h-[22px]  ${
+                className={`text-[16px] font-body w-[177px] h-[22px] ${
                   location.pathname === "/Applied"
                     ? "text-primary border-b-2 border-[#0066FF] font-semibold"
                     : "text-[#57595A] font-normal"
@@ -152,7 +164,7 @@ const CompletedComp = () => {
             </Link>
             <Link to="/Ongoing">
               <div
-                className={`text-[16px]  font-body  w-[184px] h-[22px]   ${
+                className={`text-[16px] font-body w-[184px] h-[22px] ${
                   location.pathname === "/Ongoing"
                     ? "text-primary border-b-2 border-[#0066FF] font-semibold"
                     : "text-[#57595A] font-normal"
@@ -163,7 +175,7 @@ const CompletedComp = () => {
             </Link>
             <Link to="/Complete">
               <div
-                className={`text-[16px]  font-body  w-[202px] h-[22px]   ${
+                className={`text-[16px] font-body w-[202px] h-[22px] ${
                   location.pathname === "/Complete"
                     ? "text-primary border-b-2 border-[#0066FF] font-semibold"
                     : "text-[#57595A] font-normal"
@@ -174,7 +186,8 @@ const CompletedComp = () => {
             </Link>
           </div>
         </div>
-
+        
+        {/* table content--- */}
         <div className="mt-[68px] px-4">
           <table className={`${expanded ? "w-[1047px]" : "w-full"}`}>
             <thead>
@@ -211,10 +224,9 @@ const CompletedComp = () => {
                         {" "}
                         {campaign.title}
                       </span>
-                      <div className="flex items-center gap-[1px]">
+                      <div onClick={()=>handleBrand(index)} className="flex items-center gap-[1px] cursor-pointer">
                         <h6 className="text-[#797A7B] font-sans text-xs not-italic font-normal leading-normal w-[38px] h-[16px]">
-                          {" "}
-                          Crocks{" "}
+                         {campaign.campbrand}
                         </h6>
                         <button>
                           <FiArrowUpRight className="text-[#0066FF]" />
@@ -263,6 +275,7 @@ const CompletedComp = () => {
               ))}
             </tbody>
           </table>
+          <CompleteProfileComp selectData={campaigns[selectIndex]} setIsOpen={setIsOpen} isOpen={isOpen} />
           <DataComp  selectData={campaigns[selectIndex]} setIsModalVisible={setIsModalVisible} isModalVisible={isModalVisible} />
         </div>
       </div>

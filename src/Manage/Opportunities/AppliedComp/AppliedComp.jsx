@@ -5,6 +5,7 @@ import { GoDotFill } from "react-icons/go";
 import Brand from "../../../Assets/logo.png";
 import { FiArrowUpRight } from "react-icons/fi";
 import AppCompModal from "./AppCompModal";
+import AppiledProfileComp from "./Appliedprofile";
 
 const AppliedComp = () => {
   const contextState = useContext(Mycontext);
@@ -12,6 +13,7 @@ const AppliedComp = () => {
   const location = useLocation();
   const [openModal, setOpenModal] = useState(false);
   const [selectIndex, setSelectIndex] = useState(null);
+  const [isOpen, setIsOpen] =useState(false)
 
   const AppliedCompData = [
     {
@@ -121,31 +123,37 @@ const AppliedComp = () => {
     setOpenModal(true);
   };
 
+  const handleBrand =( index )=>{
+    setIsOpen(true);
+    setSelectIndex(index);
+  }
+
   return (
     <div
-      className={` flex relative  ${
+      className={` flex relative h-[897px] ${
         !expanded
           ? "left-[100px] w-[calc(100%-110px)]"
           : "left-[320px] w-[calc(100%-320px)]"
       }  overflow-y-auto  bg-white space-y-4 p-4 `}
     >
-      <div className="bg-white h-[897px] w-full">
-        <div class="flex w-full justify-between  p-4 bg-white border-border">
-          <div>
-            <h1 class="text-[24px] font-semibold font-body">Opportunities</h1>
-            <p class="text-[14px] font-normal font-body text-[#57595a]">
-              Discover various brand campaigns —connect, collaborate, and
-              elevate your influence to the next level!
+      <div className="bg-white w-full">
+      <div className={`flex ${expanded ? 'w-[1062px]':'w-full'} h-[52px] justify-between items-center p-4 bg-white border-border`}>
+          <div className={``}>
+            <h1 className="text-[24px] font-semibold font-body">Opportunities</h1>
+            <p className="text-[14px] font-normal font-body text-[#57595a]">
+              Discover various brand campaigns —connect, collaborate, and elevate your influence to the next level!
             </p>
           </div>
         </div>
-        <div class="flex mt-7 pb-3  px-4">
-          <div className="flex gap-6 border-b w-full">
+
+
+        <div className={`flex mt-11 px-4 border-b `}>
+          <div className={`flex gap-6  ${expanded ? 'w-[780px]':'w-full'}`}>
             <Link to="/Opportunities">
               <div
-                className={` px-[6px] text-[16px]  font-body   w-[160px] h-[22px] ${
+                className={`px-[6px] text-[16px] font-body w-[160px] h-[22px] ${
                   location.pathname === "/Opportunities"
-                    ? " text-[#191D23] font-semibold border-b-2 border-[#0066FF] "
+                    ? "text-[#191D23] font-semibold border-b-2 border-[#0066FF]"
                     : "text-[#57595A] font-normal"
                 }`}
               >
@@ -154,7 +162,7 @@ const AppliedComp = () => {
             </Link>
             <Link to="/Applied">
               <div
-                className={`  text-[16px]  font-body  w-[177px] h-[22px]  ${
+                className={`text-[16px] font-body w-[177px] h-[22px] ${
                   location.pathname === "/Applied"
                     ? "text-primary border-b-2 border-[#0066FF] font-semibold"
                     : "text-[#57595A] font-normal"
@@ -165,7 +173,7 @@ const AppliedComp = () => {
             </Link>
             <Link to="/Ongoing">
               <div
-                className={`text-[16px]  font-body  w-[184px] h-[22px]   ${
+                className={`text-[16px] font-body w-[184px] h-[22px] ${
                   location.pathname === "/Ongoing"
                     ? "text-primary border-b-2 border-[#0066FF] font-semibold"
                     : "text-[#57595A] font-normal"
@@ -176,7 +184,7 @@ const AppliedComp = () => {
             </Link>
             <Link to="/Complete">
               <div
-                className={`text-[16px]  font-body  w-[202px] h-[22px]   ${
+                className={`text-[16px] font-body w-[202px] h-[22px] ${
                   location.pathname === "/Complete"
                     ? "text-primary border-b-2 border-[#0066FF] font-semibold"
                     : "text-[#57595A] font-normal"
@@ -187,6 +195,8 @@ const AppliedComp = () => {
             </Link>
           </div>
         </div>
+
+        {/* table content- */}
         <div className="mt-8 px-4">
           <table className={`${expanded ? "w-[1047px]" : "w-full"}`}>
             <thead>
@@ -216,8 +226,8 @@ const AppliedComp = () => {
                     className="border-y border-[#D2D3D3] h-[99px] py-[32px]"
                   >
                     <td>
-                      <button>
-                        <div className="flex">
+                      <button onClick={()=>handleBrand(index)}>
+                        <div  className="flex">
                           <span className="font-normal text-base text-[#191D23]">
                             {" "}
                             {data.brandName}
@@ -282,12 +292,17 @@ const AppliedComp = () => {
               })}
             </tbody>
           </table>
-          {openModal && (
+            
+            <div>
+              <AppiledProfileComp selectData={AppliedCompData[selectIndex]} setIsOpen={setIsOpen} isOpen={isOpen}/>
+            {openModal && (
             <AppCompModal
               closeModal={setOpenModal}
               selectData={AppliedCompData[selectIndex]}
             />
           )}
+            </div>
+
         </div>
       </div>
     </div>

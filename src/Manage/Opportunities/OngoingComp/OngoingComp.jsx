@@ -188,7 +188,7 @@ const OngoingComp = () => {
 
         {/* table componenet start--- */}
     <div className="   ">
-       <table   className={`w-[1051px] ml-3 mt-11`}>
+       <table   className={` ${expanded?'w-[1051px] ':'w-full' } ml-3 mt-11`}>
        
        <thead className="h-[40px]  border-b-2 ">
         

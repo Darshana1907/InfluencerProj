@@ -5,7 +5,6 @@ import AppliedComp from "../Manage/Opportunities/AppliedComp/AppliedComp";
 import CompltedComp from "../Manage/Opportunities/CompletedComp/CompletedComp";
 import OngoingComp from "../Manage/Opportunities/OngoingComp/OngoingComp";
 
-
 const MainRouter = () => {
   return (
     <>
@@ -20,7 +19,7 @@ const MainRouter = () => {
           }
         />
 
-<Route
+        <Route
           path="/Dashboard"
           element={
             <div className="h-screen w-screen flex items-center justify-center bg-slate-400">
@@ -29,7 +28,6 @@ const MainRouter = () => {
             </div>
           }
         />
-    
 
         <Route
           path="/Earnings"
@@ -50,19 +48,16 @@ const MainRouter = () => {
           }
         />
 
-
         <Route
           path="/Profile"
           element={
             <div className="h-screen w-screen flex items-center justify-center bg-slate-400">
               {" "}
-              Profile
             </div>
           }
         />
 
-
-<Route
+        <Route
           path="/Contracts"
           element={
             <div className="h-screen w-screen flex items-center justify-center bg-slate-400">
@@ -72,27 +67,12 @@ const MainRouter = () => {
           }
         />
 
-        <Route
-          path="/Opportunities"
-          element={<NewOppcomp/>}
-        />
+        <Route path="/Opportunities" element={<NewOppcomp />} />
 
-         <Route
-          path="/Applied"
-          element={<AppliedComp/>}
-        />
+        <Route path="/Applied" element={<AppliedComp />} />
 
-         <Route
-          path="/Ongoing"
-          element={<OngoingComp/>}
-        />
-         <Route
-          path="/Complete"
-          element={<CompltedComp/>}
-        />
-
-
-
+        <Route path="/Ongoing" element={<OngoingComp />} />
+        <Route path="/Complete" element={<CompltedComp />} />
 
         <Route
           path="/settings"
@@ -108,12 +88,11 @@ const MainRouter = () => {
           element={
             <div className="h-screen w-screen flex items-center justify-center bg-slate-400">
               {" "}
-             Help & Support
+              Help & Support
             </div>
           }
         />
-
-           </Routes>
+      </Routes>
     </>
   );
 };

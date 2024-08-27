@@ -26,10 +26,10 @@ const AppCompModal = ({ closeModal, selectData }) => {
         onClick={modalclose}
         className="fixed inset-0 top-0  z-50 flex items-center justify-center bg-[#00000066] "
       >
-        <div className="bg-white absolute top-[5%] w-[529px] h-[606px] p-4 rounded-md">
+        <div className="w-[529px] h-[606px]  bg-white justify-center p-4 rounded-[14px] ">
           <div
             className="flex gap-2 items-center cursor-pointer"
-            onClick={closeModal}
+            onClick={() => closeModal(false)}
           >
             <IoMdArrowRoundBack />
             <span className="text-[14px] font-normal font-body">
@@ -45,14 +45,13 @@ const AppCompModal = ({ closeModal, selectData }) => {
               </div>
               <div>
                 <h1 className="text-[26px] font-body font-semibold text-[#0066FF]">
-                  {selectData.BrandName}
+                  {selectData.campaignName}
                 </h1>
                 <p className="text-[12px] font-body font-normal text-[#797A7B]">
-                  {selectData.campaignName}
+                  {selectData.name}
                 </p>
               </div>
             </div>
-
             <div className="py-2">
               <p className="text-[12px] font-body font-normal text-[#797A7B]">
                 {" "}
@@ -77,7 +76,7 @@ const AppCompModal = ({ closeModal, selectData }) => {
                   Location:
                 </div>
                 <div className="text-[14px] font-body font-normal text-[#000000]">
-                  {selectData.location}
+                  {selectData.location.join(",")}
                 </div>
               </div>
 
@@ -108,21 +107,19 @@ const AppCompModal = ({ closeModal, selectData }) => {
                   Deliverables:
                 </div>
                 <div className="flex items-center gap-2">
-                  {selectData.postCount > 0 && (
-                    <div className="bg-[#e8fff0] text-[#1f2223] text-[14px] font-normal font-body px-3 py-1 rounded-full">
-                      {selectData.postCount} x post
-                    </div>
-                  )}
-
-                  {selectData.reelCount > 0 && (
-                    <div className="bg-[#e8fff0] text-[#1f2223] text-[14px] font-normal font-body px-3 py-1 rounded-full">
-                      {selectData.reelCount} x reel
-                    </div>
-                  )}
-
                   {selectData.storyCount > 0 && (
                     <div className="bg-[#e8fff0] text-[#1f2223] text-[14px] font-normal font-body px-3 py-1 rounded-full">
-                      {selectData.storyCount} x story
+                      {selectData.storyCount} x Story
+                    </div>
+                  )}
+                  {selectData.reelCount > 0 && (
+                    <div className="bg-[#e8fff0] text-[#1f2223] text-[14px] font-normal font-body px-3 py-1 rounded-full">
+                      {selectData.reelCount} x Reel
+                    </div>
+                  )}
+                  {selectData.postCount > 0 && (
+                    <div className="bg-[#e8fff0] text-[#1f2223] text-[14px] font-normal font-body px-3 py-1 rounded-full">
+                      {selectData.postCount} x Post
                     </div>
                   )}
                 </div>

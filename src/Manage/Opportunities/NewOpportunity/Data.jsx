@@ -24,7 +24,8 @@ const DataComp = ({ isModalVisible, setIsModalVisible, selectData}) => {
 
   return (
     <>
-        {isModalVisible && ( <div className="fixed inset-0 h-[1600px] top-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        {isModalVisible && (
+           <div className="fixed inset-0 h-[1600px] top-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white absolute top-[5%] w-[529px] h-[606px] p-4 rounded-md">
             <div className="flex gap-2 items-center cursor-pointer" onClick={closeModal}>
               <IoMdArrowRoundBack />

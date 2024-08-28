@@ -13,7 +13,7 @@ const AppliedComp = () => {
   const location = useLocation();
   const [openModal, setOpenModal] = useState(false);
   const [selectIndex, setSelectIndex] = useState(null);
-  const [isOpen, setIsOpen] =useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const AppliedCompData = [
     {
@@ -123,10 +123,10 @@ const AppliedComp = () => {
     setOpenModal(true);
   };
 
-  const handleBrand =( index )=>{
+  const handleBrand = (index) => {
     setIsOpen(true);
     setSelectIndex(index);
-  }
+  };
 
   return (
     <div
@@ -137,18 +137,24 @@ const AppliedComp = () => {
       }  overflow-y-auto  bg-white space-y-4 p-4 `}
     >
       <div className="bg-white w-full">
-      <div className={`flex ${expanded ? 'w-[1062px]':'w-full'} h-[52px] justify-between items-center p-4 bg-white border-border`}>
+        <div
+          className={`flex ${
+            expanded ? "w-[1062px]" : "w-full"
+          } h-[52px] justify-between items-center p-4 bg-white border-border`}
+        >
           <div className={``}>
-            <h1 className="text-[24px] font-semibold font-body">Opportunities</h1>
+            <h1 className="text-[24px] font-semibold font-body">
+              Opportunities
+            </h1>
             <p className="text-[14px] font-normal font-body text-[#57595a]">
-              Discover various brand campaigns —connect, collaborate, and elevate your influence to the next level!
+              Discover various brand campaigns —connect, collaborate, and
+              elevate your influence to the next level!
             </p>
           </div>
         </div>
 
-
         <div className={`flex mt-11 px-4 border-b `}>
-          <div className={`flex gap-6  ${expanded ? 'w-[780px]':'w-full'}`}>
+          <div className={`flex gap-6  ${expanded ? "w-[780px]" : "w-full"}`}>
             <Link to="/Opportunities">
               <div
                 className={`px-[6px] text-[16px] font-body w-[160px] h-[22px] ${
@@ -197,23 +203,23 @@ const AppliedComp = () => {
         </div>
 
         {/* table content- */}
-        <div className="mt-8 px-4">
-          <table className={`${expanded ? "w-[1047px]" : "w-full"}`}>
-            <thead>
+        <div className=" px-4">
+          <table className={`${expanded ? "w-[1047px]" : "w-full"} mt-11`}>
+            <thead className="h-[40px]">
               <tr>
-                <th className="text-[#797A7B] font-semibold text-[12px] text-start">
+                <th className="text-[#797A7B] font-semibold px-3  text-[12px] text-start">
                   BRAND NAME
                 </th>
-                <th className="text-[#797A7B] font-semibold text-[12px] text-start ">
+                <th className="text-[#797A7B] font-semibold px-3  text-[12px] text-start ">
                   CAMPAIGN NAME
                 </th>
-                <th className="text-[#797A7B] font-semibold text-[12px] text-start ">
+                <th className="text-[#797A7B] font-semibold px-3  text-[12px] text-start ">
                   PLATFORMS
                 </th>
-                <th className="text-[#797A7B] font-semibold text-[12px] text-start ">
+                <th className="text-[#797A7B] font-semibold px-3  text-[12px] text-start ">
                   APPLIED DATE
                 </th>
-                <th className="text-[#797A7B] font-semibold text-[12px] text-start ">
+                <th className="text-[#797A7B] font-semibold px-3  text-[12px] text-start ">
                   STATUS
                 </th>
               </tr>{" "}
@@ -226,8 +232,8 @@ const AppliedComp = () => {
                     className="border-y border-[#D2D3D3] h-[99px] py-[32px]"
                   >
                     <td>
-                      <button onClick={()=>handleBrand(index)}>
-                        <div  className="flex">
+                      <button onClick={() => handleBrand(index)}>
+                        <div className="flex px-3 ">
                           <span className="font-normal text-base text-[#191D23]">
                             {" "}
                             {data.brandName}
@@ -238,13 +244,13 @@ const AppliedComp = () => {
                         </div>
                       </button>
                     </td>
-                    <td className="font-normal text-base text-[#191D23]">
+                    <td className="font-normal text-base text-[#191D23] px-3 ">
                       {data.campaignName}
                     </td>
-                    <td className="font-normal text-base text-[#191D23]">
+                    <td className="font-normal text-base text-[#191D23] px-3 ">
                       {data.platforms}
                     </td>
-                    <td className="font-normal text-base text-[#191D23]">
+                    <td className="font-normal text-base text-[#191D23] px-3 ">
                       {data.AppliedDate}
                     </td>
                     <td>
@@ -292,17 +298,20 @@ const AppliedComp = () => {
               })}
             </tbody>
           </table>
-            
-            <div>
-              <AppiledProfileComp selectData={AppliedCompData[selectIndex]} setIsOpen={setIsOpen} isOpen={isOpen}/>
-            {openModal && (
-            <AppCompModal
-              closeModal={setOpenModal}
-              selectData={AppliedCompData[selectIndex]}
-            />
-          )}
-            </div>
 
+          <div>
+            <AppiledProfileComp
+              selectData={AppliedCompData[selectIndex]}
+              setIsOpen={setIsOpen}
+              isOpen={isOpen}
+            />
+            {openModal && (
+              <AppCompModal
+                closeModal={setOpenModal}
+                selectData={AppliedCompData[selectIndex]}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>

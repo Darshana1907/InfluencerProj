@@ -5,12 +5,7 @@ import Brand from "../../../Assets/logo.png";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 const AppCompModal = ({ closeModal, selectData }) => {
-  useEffect(() => {
-    document.body.style.overflowY = "hidden";
-    return () => {
-      document.body.style.overflowY = "scroll";
-    };
-  }, []);
+
 
   const contextState = useContext(Mycontext);
   const expanded = contextState.expanded;

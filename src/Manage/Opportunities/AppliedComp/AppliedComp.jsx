@@ -136,17 +136,17 @@ const AppliedComp = () => {
           : "left-[320px] w-[calc(100%-320px)]"
       }  overflow-y-auto  bg-white space-y-4 p-4 `}
     >
-      <div className="bg-white w-full">
+      <div className="bg-[#FFFFFF] w-full">
         <div
           className={`flex ${
             expanded ? "w-[1062px]" : "w-full"
           } h-[52px] justify-between items-center p-4 bg-white border-border`}
         >
           <div className={``}>
-            <h1 className="text-[24px] font-semibold font-body">
+            <h1 className="text-[24px] h-[28px] w-[163px] font-semibold font-body">
               Opportunities
             </h1>
-            <p className="text-[14px] font-normal font-body text-[#57595a]">
+            <p className="h-[20px] w-[666px] text-[14px] font-normal font-body text-[#57595a]">
               Discover various brand campaigns —connect, collaborate, and
               elevate your influence to the next level!
             </p>
@@ -205,7 +205,7 @@ const AppliedComp = () => {
         {/* table content- */}
         <div className=" px-4">
           <table className={`${expanded ? "w-[1047px]" : "w-full"} mt-11`}>
-            <thead className="h-[40px]">
+            <thead className="h-[20px] w-[736px] ">
               <tr>
                 <th className="text-[#797A7B] font-semibold px-3  text-[12px] text-start">
                   BRAND NAME

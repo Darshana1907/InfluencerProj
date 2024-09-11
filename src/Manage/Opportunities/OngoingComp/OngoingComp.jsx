@@ -114,7 +114,6 @@ const OngoingComp = () => {
       addInfo:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio .",
     },
-    
   ];
 
   const handlCrocks = (index) => {
@@ -142,10 +141,10 @@ const OngoingComp = () => {
           } h-[52px] justify-between items-center p-4 bg-white border-border`}
         >
           <div className={``}>
-            <h1 className="text-[24px] font-semibold font-body">
+            <h1 className="text-[24px] h-[28px] w-[163px] font-semibold font-body">
               Opportunities
             </h1>
-            <p className="text-[14px] font-normal font-body text-[#57595a]">
+            <p className="h-[20px] w-[666px]  text-[14px] font-normal font-body text-[#57595a]">
               Discover various brand campaigns —connect, collaborate, and
               elevate your influence to the next level!
             </p>
@@ -204,22 +203,22 @@ const OngoingComp = () => {
         {/* table componenet start--- */}
         <div className=" px-4  ">
           <table className={` ${expanded ? "w-[1051px] " : "w-full"}  mt-11`}>
-            <thead className="h-[40px]  border-b-2 ">
+            <thead className="h-[20px] w-[736px]  border-b-2 ">
               <tr className="  h-[20px]  ">
-                <th className="    font-body text-[#797A7B] text-[12px] px-3  font-semibold text-start ">
-                  BRAND NAME
+                <th className="   font-body text-[#797A7B] text-[12px] px-3  font-semibold text-start ">
+                  <div className="w-[80px] h-[16px] ">BRAND NAME</div>
                 </th>
                 <th className="   font-body text-[#797A7B] text-[12px]  px-3 font-semibold text-start ">
-                  CAMPAIGN NAME
+                  <div className="w-[102px] h-[16px]"> CAMPAIGN NAME</div>
                 </th>
                 <th className=" font-body text-[#797A7B] text-[12px] px-3  font-semibold text-start ">
-                  PLATFORM
+                  <div className="w-[70px] h-[20px]">PLATFORM</div>
                 </th>
                 <th className=" font-body text-[#797A7B] text-[12px]  px-3 font-semibold text-start ">
-                  APPLIED DATE
+                  <div className="w-[97px] h-[20px]"> APPLIED DATE</div>
                 </th>
                 <th className=" font-body text-[#797A7B] text-[12px] px-3   font-semibold text-start">
-                  STATUS
+                  <div className="w-[47px] h-[20px]"> STATUS</div>
                 </th>
               </tr>
             </thead>

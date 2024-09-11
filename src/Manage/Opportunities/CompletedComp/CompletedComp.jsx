@@ -145,10 +145,10 @@ const CompletedComp = () => {
           } h-[52px] justify-between items-center p-4 bg-white border-border`}
         >
           <div className={``}>
-            <h1 className="text-[24px] font-semibold font-body">
+            <h1 className="text-[24px] h-[28px] w-[163px] font-semibold font-body">
               Opportunities
             </h1>
-            <p className="text-[14px] font-normal font-body text-[#57595a]">
+            <p className="h-[20px] w-[666px]  text-[14px] font-normal font-body text-[#57595a]">
               Discover various brand campaigns —connect, collaborate, and
               elevate your influence to the next level!
             </p>
@@ -210,28 +210,28 @@ const CompletedComp = () => {
             <thead className="h-[40px]">
               <tr className="border-b">
                 <th className="text-[#797A7B] font-semibold text-[12px] px-3 text-start">
-                  <span className="w-[80px] h-[16px]"> CAMPAIGN ID </span>
+                  <div className="w-[80px] h-[16px]"> CAMPAIGN ID </div>
                 </th>
                 <th className="text-[#797A7B] font-semibold text-[12px] px-3 text-start">
-                  <span className="w-[102px] h-[16px]"> CAMPAIGN NAME </span>
+                  <div className="w-[102px] h-[16px]"> CAMPAIGN NAME </div>
                 </th>
                 <th className="text-[#797A7B] font-semibold text-[12px] px-3 text-start">
-                  <span className="w-[70px] h-[20px]"> PLATFORMS </span>
+                  <div className="w-[70px] h-[20px]"> PLATFORMS </div>
                 </th>
                 <th className="text-[#797A7B] font-semibold text-[12px] px-3 text-start">
-                  <span className="w-[97px] h-[20px]"> DURATION </span>
+                  <div className="w-[97px] h-[20px]"> DURATION </div>
                 </th>
                 <th className="text-[#797A7B] font-semibold text-[12px] px-3 text-start">
-                  <span className="w-[97px] h-[20px]"> EARNINGS </span>
+                  <div className="w-[97px] h-[20px]"> EARNINGS </div>
                 </th>
                 <th className="text-[#797A7B] font-semibold text-[12px] px-3 text-start">
-                  <span className="w-[47px] h-[20px]"> STATUS </span>
+                  <div className="w-[47px] h-[20px]"> STATUS </div>
                 </th>
               </tr>{" "}
             </thead>
             <tbody className="mt-2">
               {campaigns.map((campaign, index) => (
-                <tr key={index} className="border-b">
+                <tr key={index} className="border-b h-[108px]">
                   <td className="p-2 py-8">
                     <span className="w-[67px] h-[22px]">{campaign.id}</span>
                   </td>

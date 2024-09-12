@@ -140,7 +140,7 @@ const OngoingComp = () => {
             expanded ? "w-[1062px]" : "w-full"
           } h-[52px] justify-between items-center p-4 bg-white border-border`}
         >
-          <div className={``}>
+          <div className={` w-[666px] h-[52px]`}>
             <h1 className="text-[24px] h-[28px] w-[163px] font-semibold font-body">
               Opportunities
             </h1>
@@ -233,28 +233,33 @@ const OngoingComp = () => {
                     onClick={() => handlCrocks(index)}
                     className="  cursor-pointer  p-3 text-[16px]    font-normal font-body flex items-center "
                   >
+                    <div className="w-[70px] h-[22px] flex items-center">
                     {invoice.brandName}
                     <span className="text-[#0066FF] text-lg gap-1">
                       <FiArrowUpRight />
                     </span>
+                    </div>
                   </td>
 
                   <td className="  p-3 text-[16px]  font-normal font-body  ">
-                    {invoice.campaignName}
+                   <div className="w-[162px] h-[22px]"> {invoice.campaignName}</div>
                   </td>
 
                   <td className=" text-[16px] p-3    font-normal font-body">
-                    {invoice.platform.length > 1
+                    <div className="w-[103px] h-[22px]">
+                      {invoice.platform.length > 1
                       ? `${invoice.platform[0]} +${invoice.platform.length - 1}`
                       : invoice.platform[0]}
+                      </div>
                   </td>
 
                   <td className="  p-3 text-[16px]     font-normal font-body">
-                    {invoice.appliedDate}
+                   <div className="w-[106px] h-[22px]"> {invoice.appliedDate}</div>
                   </td>
 
                   <td className="    text-[14px] font-normal p-4       ">
-                    <p
+                   <div className="w-[84px] h-[22px]">
+                   <p
                       className={`font-body bg-[#B0EDC7] w-[84px] h-[24px] font-normal text-[14px] justify-center items-center flex  px-[8px] py-[2px]   rounded-[14px] text-black `}
                     >
                       <span>
@@ -262,12 +267,13 @@ const OngoingComp = () => {
                       </span>
                       {invoice.status}
                     </p>
+                   </div>
                   </td>
 
-                  <td className=" flex items-center justify-center  mt-8  gap-1  ">
+                  <td className="  flex items-center justify-center  mt-8  gap-1  ">
                     <button
                       onClick={() => handleview(index)}
-                      className="text-[#0066FF]  mr-6 px-[16px] w-[120px] h-[35px] rounded-[8px] border-2 border-[#0066FF] font-body text-[14px]    font-normal"
+                      className="text-[#0066FF]  mr-4 px-[16px] w-[120px] h-[35px] rounded-[8px] border-2 border-[#0066FF] font-body text-[14px]    font-normal"
                     >
                       View Details
                     </button>

@@ -5,7 +5,7 @@ import white from "../../../Assets/white.jpg";
 import profile from "../../../Assets/intersect.jpg";
 import { TbMenuDeep } from "react-icons/tb";
 import { Mycontext } from '../../../utils/Context';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const SidebarContext = createContext();
 
@@ -46,7 +46,8 @@ const SideBar = ({ children }) => {
             <ul className='flex-1 space-y-2 mt-10 pl-3'>{children}</ul>
           </SidebarContext.Provider>
 
-          <div className='border-t flex p-3'>
+           <Link to={'AddInfoInfluencer'} >
+           <div className='border-t flex p-3 cursor-pointer'>
             <img src={profile} alt='' className={`w-10 h-10 rounded-md transition-all duration-150 ${expanded ? "w-10 " : "w-0 ml-2"}`} />
             <div className={`flex justify-between items-center overflow-hidden transition-all duration-150 ${expanded ? "w-52 ml-3" : "w-0"}`}>
               <div className='leading-4'>
@@ -56,6 +57,8 @@ const SideBar = ({ children }) => {
               <MoreVertical size={20} />
             </div>
           </div>
+           </Link>
+
         </nav>
       </aside>
     </div>
@@ -74,7 +77,7 @@ export function SidebarItem({ icon, text, alert, customClass }) {
   };
 
   return (
-    <li
+    <li 
       onClick={handleClick}
       className={`relative flex items-center mt-0.5 rounded font-medium cursor-pointer transition-colors duration-150
         ${isSelected ? "border-r-4 border-blue-500 text-blue-500" : ""} ${expanded ? "" : "h-10"} ${customClass}`}

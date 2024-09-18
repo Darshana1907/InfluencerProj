@@ -4,6 +4,9 @@ import NewOppcomp from "../Manage/Opportunities/NewOpportunity/NewoppComp";
 import AppliedComp from "../Manage/Opportunities/AppliedComp/AppliedComp";
 import CompltedComp from "../Manage/Opportunities/CompletedComp/CompletedComp";
 import OngoingComp from "../Manage/Opportunities/OngoingComp/OngoingComp";
+import EditProfile from "../EditProfile/EditProfile";
+import PlatformComp from "../EditProfile/EditProfile";
+import AdditionInfoModal from "../EditProfile/AdditionInfoModal";
 
 const MainRouter = () => {
   return (
@@ -73,6 +76,8 @@ const MainRouter = () => {
 
         <Route path="/Ongoing" element={<OngoingComp />} />
         <Route path="/Complete" element={<CompltedComp />} />
+        <Route path="/Platform" element={<PlatformComp />} />
+        <Route path="/AddInfoInfluencer" element={<AdditionInfoModal />} />
 
         <Route
           path="/settings"
